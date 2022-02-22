@@ -1,6 +1,6 @@
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
-import { CtbModule } from './ctb/ctb.module';
+import { OmgModule } from './omg/omg.module';
 
 @Module({
   imports: [
@@ -9,8 +9,15 @@ import { CtbModule } from './ctb/ctb.module';
         host: 'localhost',
         port: 6379,
       },
+      limiter: {
+        max: 1000,
+        duration: 5000,
+      },
+      defaultJobOptions: {
+        attempts: 5,
+      },
     }),
-    CtbModule,
+    OmgModule,
   ],
 })
 export class AppModule {}

@@ -2,11 +2,16 @@ import { QUEUE_CASH_MVT, QUEUE_OPERATION_MVT } from './../queues';
 import { MvtOperationDto } from './dto/mvt-operation.dto';
 import { MvtCashDto } from './dto/mvt-cash.dto';
 import { OmgService } from './omg.service';
-import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 
 @Controller('omg')
 export class OmgController {
   constructor(private omgSerivce: OmgService) {}
+
+  @Get()
+  appHealth() {
+    return 'Hello World from producer!';
+  }
 
   @Post('mvtCash')
   async transferCashMvt(

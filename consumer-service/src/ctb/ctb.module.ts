@@ -3,6 +3,7 @@ import { TmcProcessor } from './tmc.processor';
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { CtbProcessor } from './ctb.processor';
+import { CtbController } from './ctb.controller';
 
 @Module({
   imports: [
@@ -14,5 +15,6 @@ import { CtbProcessor } from './ctb.processor';
     ),
   ],
   providers: [CtbProcessor, TmcProcessor],
+  controllers: [CtbController],
 })
 export class CtbModule {}

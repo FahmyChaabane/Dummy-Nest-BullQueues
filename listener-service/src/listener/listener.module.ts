@@ -3,6 +3,7 @@ import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
 import { TmcListenerQueue } from './tmc-listener.queue';
 import { CtbListenerQueue } from './ctb-listener.queue';
+import { ListenerController } from './listener.controller';
 
 @Module({
   imports: [
@@ -14,5 +15,6 @@ import { CtbListenerQueue } from './ctb-listener.queue';
     ),
   ],
   providers: [CtbListenerQueue, TmcListenerQueue],
+  controllers: [ListenerController],
 })
 export class ListenerModule {}
