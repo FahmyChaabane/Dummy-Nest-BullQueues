@@ -6,7 +6,7 @@ import { OmgModule } from './omg/omg.module';
   imports: [
     BullModule.forRoot({
       redis: {
-        host: 'localhost',
+        host: 'redis',
         port: 6379,
       },
       limiter: {
